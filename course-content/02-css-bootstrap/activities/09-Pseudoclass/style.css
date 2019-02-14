@@ -1,0 +1,16 @@
+a:default {
+	background-color:green;
+	font-weight:bold;
+}
+a:active {
+	background-color:blue;
+	font-weight:bolder;
+}
+a:hover {
+	background-color:yellow;
+	font-style:italic;
+}
+a:focus {
+	background-color:red;
+	font-size:20px;
+}
