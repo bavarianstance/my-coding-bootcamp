@@ -68,4 +68,15 @@ body {
   .wrapper {
     width: 600px;
   }
+
+#main-content {
+  margin:20px;
+  padding:50px;  
+}
+
+#sidebar {
+  margin:20px;
+  padding:50px;  
+}
+
 }
