@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>10 Questions</title>
+</head>
+<body>
+
+	<h1>Time to Play 10 Questions!</h1>
+	<br>
+	<h2>Good luck!</h2>
+
+	<script type="text/javascript">
+		
+
+		let questions = [{
+			q: "Donald Trump is an idiot.",
+			a: true
+		},
+		{
+			q: "The earth is flat.",
+			a: false
+		},
+		{
+			q: "Chemtrails make the frogs gay.",
+			a: false
+		},
+		{
+			q: "Fast food is good for you.",
+			a: false
+		},
+		{
+			q: "Jessica Alba is hot.",
+			a: true
+		},
+		{
+			q: "Drugs are bad mkay?",
+			a: true
+		},
+		{
+			q: "Money makes the world go round.",
+			a: true
+		},
+		{
+			q: "Coding is awesome",
+			a: true
+		},
+		{
+			q: "BMW breaks my wallet",
+			a: true
+		},
+		{
+			q: "Marriage is a social construct.",
+			a: true
+		}
+		]
+
+let userAnswers = [];
+let actualAnswers = [];
+let score = 0
+questions.forEach(function(question){
+let userAnswer = confirm(question.q);
+userAnswers.push(userAnswer);
+actualAnswers.push(question.a);
+});
+
+for (let i=0; i<10; i++) {
+	if (actualAnswers[i] === userAnswers[i]) {
+		score++ 
+	}
+	else {
+		console.log('whoops')
+	}
+}
+
+alert('congrats! Your final score was ' + score + '!')
+
+
+	</script>
+
+</body>
+</html>

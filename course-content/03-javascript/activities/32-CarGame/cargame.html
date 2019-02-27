@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Car Game</title>
+  </head>
+  <body>
+<h1>Car Adventures!</h1>
+<br>
+<h2>Press H to Honk!</h2>
+<br>
+<h2>Press W to Drive to Work!</h2>
+<br>
+<h2>Press D to Drive Around the World!</h2>
+<br>
+<h2>Press T to get a Tune Up!</h2>
+<br>
+<h2>Press S to log car stats to console</h2>
+<br>
+    <script>
+
+      var car = {
+        make: "Honda",
+        model: "Fit",
+        color: "Blue Raspberry",
+        mileage: 3000,
+        isWorking: true,
+
+        driveToWork: function() {
+
+          alert("Old Mileage: " + this.mileage);
+
+          this.mileage = this.mileage + 8;
+
+          alert("New mileage: " + this.mileage);
+        },
+
+        driveAroundWorld: function() {
+
+          alert("Old Mileage: " + this.mileage);
+
+          this.mileage = this.mileage + 24000;
+
+          alert("New Mileage: " + this.mileage);
+          alert("Car needs a tuneup!");
+
+          this.isWorking = false;
+        },
+
+        getTuneUp: function() {
+          alert("Car is ready to go!");
+          this.isWorking = true;
+        },
+
+        honk: function() {
+          alert("Honk! Honk!");
+        },
+
+      reWriteStats: function() {
+
+
+      console.log(this.make);
+      console.log(this.model);
+      console.log(this.mileage);
+      console.log(this.isWorking);
+    }
+      };
+
+
+    
+
+    document.addEventListener('keyup', function(event) {
+  if (event.code == 'KeyH') {
+    car.honk();
+  }
+});
+
+  document.addEventListener('keyup', function(event) {
+  if (event.code == 'KeyW') {
+    car.driveToWork();
+  }
+});
+
+  document.addEventListener('keyup', function(event) {
+  if (event.code == 'KeyD') {
+    car.driveAroundWorld();
+  }
+});
+
+   document.addEventListener('keyup', function(event) {
+  if (event.code == 'KeyT') {
+    car.getTuneUp();
+  }
+});
+
+  document.addEventListener('keyup', function(event) {
+  if (event.code == 'KeyS') {
+    car.reWriteStats();
+  }
+});
+   
+    </script>
+    
+  </body>
+</html>
