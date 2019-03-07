@@ -23,7 +23,7 @@
     let imgFiles = [];
 
 
-    let fileSort = (x) => {
+    const fileSort = (x) => {
       for (i = 0 ; i < x.length; i++) {
             let fileSplit = x[i].split(".");
       if (fileSplit[1] === "mov" || fileSplit[1] === "mp4" || fileSplit[1] === "avi" || fileSplit[1] === "mpeg" || fileSplit[1] === "mpg") {
@@ -32,5 +32,7 @@
             imgFiles.push(x[i]);
         }
       }
-    }
+    };
+
+    
 
