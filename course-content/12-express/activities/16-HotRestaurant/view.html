@@ -1,0 +1,147 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tables Page</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+      integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+      crossorigin="anonymous"
+    />
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+      integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body background="rest.jpg">
+    <div class="container">
+      <div class="jumbotron">
+            <h1 class="text-center"><font color="red"><i>
+                    <span class="glyphicon glyphicon-leaf"></span> Hot Restaurant</i></font>
+                  </h1>
+        <hr />
+        <h3 class="text-center"><font color="blue">Current Reservations and Waiting List</font></h3>
+        <br />
+        <div class="text-center">
+          <a href="/reserve"
+            ><button type="button" class="btn btn-lg btn-success">
+              <span class="glyphicon glyphicon-credit-card"></span> Make
+              Reservation
+            </button></a
+          >
+          <a href="/"
+            ><button type="button" class="btn btn-lg btn-primary">
+              <span class="glyphicon glyphicon-home"></span></button
+          ></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><span class="text-center">Current Reservations</h4>
+            </div>
+            <div class="panel-body" id="tableSection">
+              <div class="well" id="tableWell-01">
+                <h2><span class="label label-primary">1</span> |</h2>
+              </div>
+              <div class="well" id="tableWell-11">
+                <h2><span class="label label-primary">2</span> |</h2>
+              </div>
+              <div class="well" id="tableWell-21">
+                <h2><span class="label label-primary">3</span> |</h2>
+              </div>
+              <div class="well" id="tableWell-31">
+                <h2><span class="label label-primary">4</span> |</h2>
+              </div>
+              <div class="well" id="tableWell-41">
+                <h2><span class="label label-primary">5</span> |</h2>
+              </div>
+            </div>
+          </div>
+          <!-- Waiting List Panel -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">Waiting List</h4>
+            </div>
+            <div class="panel-body" id="waitlistSection"></div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="container">
+          <p>Control Panel</p>
+          <p>
+            <a href="#" id="clear">Clear Table</a> |
+            <a href="/api/tables">API Table Link</a> |
+            <a href="/api/waitlist">API Wait List</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript">
+
+    	$.get("/api/tables/", function(data){
+    if (data) {
+        for(var i = 0; i < data.length; i++){
+            var newDiv = $("<div>")
+            var nameDis = $("<p>").text(data[i].name);
+            var phoneDis =$("<p>").text(data[i].phone);
+            var emailDis = $("<p>").text(data[i].email);
+            var idDis = $("<p>").text(data[i].id);
+            $("#tableWell-" + (i) + "1").append(newDiv)
+            newDiv.append(nameDis)
+            newDiv.append(phoneDis)
+            newDiv.append(emailDis)
+            newDiv.append(idDis)
+        }
+
+        
+      }
+      else {
+        $("#tableWell-01").text("There's nobody here, claim a table while you still can!");
+      }
+
+})
+
+$.get("/api/waitlist/", function(data){
+    if (data) {
+        
+        for(var j = 0; j < data.length; j++){
+            var newDiv = $("<div>")
+            var nameDis = $("<p>").text(data[j].name);
+            var phoneDis =$("<p>").text(data[j].phone);
+            var emailDis = $("<p>").text(data[j].email);
+            var idDis = $("<p>").text(data[j].id);
+            $("#waitlistSection").append(newDiv)
+            newDiv.append(nameDis)
+            newDiv.append(phoneDis)
+            newDiv.append(emailDis)
+            newDiv.append(idDis)
+        }
+
+
+      }
+    else{
+        $("#waitlistSection").html("")
+    }
+
+})
+
+function clearTable() {
+	var currentURL = window.location.origin;
+	$.ajax({url: currentURL + "/api/clear", method: "POST"})
+}
+
+$("#clear").on('click', function() {
+	alert("Clearing data...");
+	clearTable();
+	location.reload();
+})
+ 
+    </script>
+  </body>
+</html>
