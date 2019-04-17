@@ -1,0 +1,9 @@
+db.animals.insert({"name": "Dog", "numLegs": 4, "class": "mammal", "weight": "80", "whatIwouldReallyCallIt": "Buddy"})
+
+db.animals.insert({"name": "Cat", "numLegs": 4, "class": "mammal", "weight": "28", "whatIwouldReallyCallIt": "Kitty"})
+
+db.animals.insert({"name": "Snake", "numLegs": 0, "class": "reptile", "weight": "10", "whatIwouldReallyCallIt": "Slithery"})
+
+db.animals.insert({"name": "Hamster", "numLegs": 4, "class": "mammal", "weight": "2", "whatIwouldReallyCallIt": "Hammy"})
+
+db.animals.insert({"name": "Goldfish", "numLegs": 0, "class": "fish", "weight": "1", "whatIwouldReallyCallIt": "Goldilocks"})

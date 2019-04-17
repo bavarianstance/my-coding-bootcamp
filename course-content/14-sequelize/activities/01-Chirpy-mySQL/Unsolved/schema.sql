@@ -1,0 +1,11 @@
+CREATE DATABASE chirpy;
+USE chirpy;
+
+CREATE TABLE `chirps` (
+
+  -- TABLE CODE TO GO HERE
+  id int NOT NULL AUTO_INCREMENT,
+  author VARCHAR(50),
+  time_created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+);
